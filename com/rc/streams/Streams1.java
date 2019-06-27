@@ -27,8 +27,8 @@ public class Streams1
         IntStream.rangeClosed(1, 10).forEach(System.out::println); //Method access explicit
         IntStream.rangeClosed(1, 10).filter(i -> i > 5).forEach(Out::println); //Method access explicit
         System.out.println((IntStream.rangeClosed(1, 10).filter(i -> i > 5).reduce(Integer::sum))); //Sum of the nos greater than 5
-        System.out.println((IntStream.rangeClosed(1, 10).reduce((a, b) -> a > b ? a : b)).getAsInt()); //Highest no from the list
-        System.out.println((IntStream.range(0, 10).reduce((a, b) -> a > b ? a : b)).getAsInt()); //Highest no from the list
+        System.out.println((IntStream.rangeClosed(1, 10).reduce((a, b) -> a > b ? a : b)).getAsInt()); //Highest no from the list. It will return an premitive int.
+        System.out.println((IntStream.range(0, 10).reduce((a, b) -> a > b ? a : b))); //Highest no from the list. It will return OptionalInt object.
 
         check(() -> "hello");
 
