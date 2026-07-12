@@ -12,10 +12,22 @@ A Docker image is included to compile and run Java files from the repository usi
 docker build -t tutorials-java .
 ```
 
-### Run a Java file
+### Run a Java file locally
 
 ```bash
 docker run --rm tutorials-java com/rc/streams/Streams1.java
+```
+
+### Pull the published image from Docker Hub
+
+```bash
+docker pull ravichandra10/tutorials-java:latest
+```
+
+### Run the published image
+
+```bash
+docker run --rm ravichandra10/tutorials-java:latest com/rc/streams/Streams1.java
 ```
 
 You can run other Java examples from the repository the same way by passing the relative path to the source file.
@@ -161,17 +173,32 @@ docker push YOUR_DOCKERHUB_USERNAME/tutorials-java:latest
 - `docker tag` gives your local image a remote repository name.
 - `docker push` uploads the image to Docker Hub so others can pull it.
 
+Example with your account:
+
+```bash
+docker login
+docker tag tutorials-java:latest ravichandra10/tutorials-java:latest
+docker push ravichandra10/tutorials-java:latest
+```
+
 ### 15. Advanced: pull an image from Docker Hub
 
 ```bash
 docker pull YOUR_DOCKERHUB_USERNAME/tutorials-java:latest
 ```
 
-- `docker pull` downloads an image from Docker Hub to your local machine.
+- `docker pull` downloads the published image from Docker Hub to your local machine.
 - After pulling, you can run it with:
 
 ```bash
-docker run --rm YOUR_DOCKERHUB_USERNAME/tutorials-java:latest
+docker run --rm YOUR_DOCKERHUB_USERNAME/tutorials-java:latest com/rc/streams/Streams1.java
+```
+
+Example with your account:
+
+```bash
+docker pull ravichandra10/tutorials-java:latest
+docker run --rm ravichandra10/tutorials-java:latest com/rc/streams/Streams1.java
 ```
 
 ### 16. Useful learning tip
